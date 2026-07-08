@@ -50,13 +50,13 @@ public class Pot : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        
+
 
         if (Cornspoon != null && Cornspoon.activeSelf)
         {
             Corn++;
             Cornspoon.SetActive(false);
-
+            UpdatePotSprite();
         }
 
         if (Saltspoon != null && Saltspoon.activeSelf)
@@ -92,11 +92,11 @@ public class Pot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void Update()
+    private void UpdatePotSprite()
     {
         if (isPowerActivated) return;
 
-        if(Corn == 1) myPotImage.sprite = Corn1;
+        if (Corn == 1) myPotImage.sprite = Corn1;
         else if (Corn == 2) myPotImage.sprite = Corn2;
         else if (Corn == 3) myPotImage.sprite = Corn3;
         else if (Corn == 4) myPotImage.sprite = OverCorn;

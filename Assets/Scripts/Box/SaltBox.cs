@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SalttBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
+public class SaltBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
 {
     public GameObject Spoon;
     public GameObject Spoon1;
@@ -32,22 +32,20 @@ public class SalttBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
         {
             if (Spoon.activeSelf == false)
             {
-                Debug.Log("d");
                 Spoon.SetActive(true);
-                myBoxImage.sprite = BoxOpen;
+                if (myBoxImage != null) myBoxImage.sprite = BoxOpen;
             }
             else
             {
-                Debug.Log("s");
                 Spoon.SetActive(false);
-                myBoxImage.sprite = BoxClose;
+                if (myBoxImage != null) myBoxImage.sprite = BoxClose;
             }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (myBoxImage.sprite == BoxOpen)
+        if (myBoxImage != null && myBoxImage.sprite == BoxOpen)
         {
             myBoxImage.sprite = BoxClose;
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CorntBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
+public class CornBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
 {
     public GameObject Spoon;
     public GameObject Spoon1;
@@ -33,19 +33,19 @@ public class CorntBox : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
             if (Spoon.activeSelf == false)
             {
                 Spoon.SetActive(true);
-                myBoxImage.sprite = BoxOpen;
+                if(myBoxImage != null) myBoxImage.sprite = BoxOpen;
             }
             else
             {
                 Spoon.SetActive(false);
-                myBoxImage.sprite = BoxClose;
+                if (myBoxImage != null) myBoxImage.sprite = BoxClose;
             }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (myBoxImage.sprite == BoxOpen)
+        if (myBoxImage != null && myBoxImage.sprite == BoxOpen)
         {
             myBoxImage.sprite = BoxClose;
         }

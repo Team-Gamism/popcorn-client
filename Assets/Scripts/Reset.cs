@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Reset : MonoBehaviour
+public class ResetSystem : MonoBehaviour
 {
     public void ResetGame()
     {
